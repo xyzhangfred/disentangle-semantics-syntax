@@ -41,10 +41,14 @@ class base(nn.Module):
             y_out_size = 2 * self.expe.config.ensize
         elif self.expe.config.yencoder_type.lower() == "word_avg":
             y_out_size = embed_dim
+        elif self.expe.config.yencoder_type.lower() == "bert":
+            y_out_size = embed_dim
 
         if "lstm" in self.expe.config.zencoder_type.lower():
             z_out_size = 2 * self.expe.config.ensize
         elif self.expe.config.zencoder_type.lower() == "word_avg":
+            z_out_size = embed_dim
+        elif self.expe.config.zencoder_type.lower() == "bert":
             z_out_size = embed_dim
 
         self.mean1 = model_utils.get_mlp(

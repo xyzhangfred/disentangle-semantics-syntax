@@ -1,0 +1,37 @@
+#!/bin/bash
+
+python train.py \
+    --debug 0 \
+    --save_prefix vgvae-exp-bert-bert-lstm \
+    --save_dir bert-bert-lstm \
+    --decoder_type lstm \
+    --yencoder_type Bert \
+    --zencoder_type Bert \
+    --n_epoch 30 \
+    --train_file para-nmt-0.5m-processed.txt \
+    --eval_file sts_data.pkl \
+    --pre_train_emb 0 \
+    --vocab_file para-nmt-0.5m-vocab \
+    --vocab_size 50000 \
+    --batch_size 30 \
+    --dropout 0.0 \
+    --l2 0.0 \
+    --max_vmf_kl_temp 1e-4 \
+    --max_gauss_kl_temp 1e-3 \
+    --zmlp_n_layer 0 \
+    --ymlp_n_layer 0 \
+    --mlp_n_layer 3 \
+    --mega_batch 20 \
+    --para_logloss_ratio 1.0 \
+    --ploss_ratio 1.0 \
+    --disc_ratio 1.0 \
+    --mlp_hidden_size 100 \
+    --ysize 50 \
+    --zsize 50 \
+    --embed_dim 64 \
+    --encoder_size 50 \
+    --decoder_size 100 \
+    --p_scramble 0.0 \
+    --print_every 100 \
+    --eval_every 1000 \
+    --summarize 0 
